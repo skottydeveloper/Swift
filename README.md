@@ -20,6 +20,7 @@ THE SIMPLE CALCULATOR FEATURES:
 - Copy Results: Press and hold on the number to copy and paste elsewhere.
 
 THE SIMPLE CALCULATOR SUPPORTS:
+
 Basic mathematical operations: 
 - Addition, Subtraction, Division, Multiplication.
 - Power of Two, Power of Three, Square Root, Cubic Root.
