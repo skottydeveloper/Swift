@@ -20,12 +20,12 @@ THE SIMPLE CALCULATOR FEATURES:
 - Copy Results: Press and hold on the number to copy and paste elsewhere.
 
 THE SIMPLE CALCULATOR SUPPORTS:
-- Basic mathematical operations: 
+Basic mathematical operations: 
  • Addition, Subtraction, Division, Multiplication.
  • Power of Two, Power of Three, Square Root, Cubic Root.
  • Percentages, Inverse Function.
 
-- Geometrical applications of everyday shapes: 
+Geometrical applications of everyday shapes: 
  • Square Perimeter, Square Area, Square Diagonal, Cube Volume.
  • Circle Perimeter, Circle Area, Sphere Surface Area, Sphere Volume, Pi.
  • Triangle Perimeter, Triangle Area.
