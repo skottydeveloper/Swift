@@ -21,11 +21,11 @@ THE SIMPLE CALCULATOR FEATURES:
 
 THE SIMPLE CALCULATOR SUPPORTS:
 Basic mathematical operations: 
- • Addition, Subtraction, Division, Multiplication.
- • Power of Two, Power of Three, Square Root, Cubic Root.
- • Percentages, Inverse Function.
+- Addition, Subtraction, Division, Multiplication.
+- Power of Two, Power of Three, Square Root, Cubic Root.
+- Percentages, Inverse Function.
 
 Geometrical applications of everyday shapes: 
- • Square Perimeter, Square Area, Square Diagonal, Cube Volume.
- • Circle Perimeter, Circle Area, Sphere Surface Area, Sphere Volume, Pi.
- • Triangle Perimeter, Triangle Area.
+- Square Perimeter, Square Area, Square Diagonal, Cube Volume.
+- Circle Perimeter, Circle Area, Sphere Surface Area, Sphere Volume, Pi.
+- Triangle Perimeter, Triangle Area.
