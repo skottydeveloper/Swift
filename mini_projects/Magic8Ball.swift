@@ -25,5 +25,6 @@ switch randomNumber {
     default:
         eightBall = "Error"  
 }
+
 !playerName.isEmpty ? print("\(playerName) asks: \(playerQuestion)") : print("\(playerQuestion)")
 print("Magic 8 Ball's answer: \(eightBall)")

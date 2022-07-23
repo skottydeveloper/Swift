@@ -6,13 +6,14 @@ var englishLiterature: Set = ["Gabby", "Jasmine", "Alex", "Alif", "Aldrian", "Ad
 var computerScience: Set = ["Galina", "Kenny", "Sonny", "Alex", "Skyla"]
 
 var allStudents = spanish101.union(german101)
+
 allStudents = allStudents.union(advancedCalculus)
 allStudents = allStudents.union(artHistory)
 allStudents = allStudents.union(englishLiterature)
 allStudents = allStudents.union(computerScience)
 
 for student in allStudents {
-  print(student)
+    print(student)
 }
 
 print("\nTotal number of students:", allStudents.count)
@@ -31,13 +32,13 @@ var sevenPlus = 0
 var classSet: Set = [spanish101, german101, englishLiterature, computerScience, artHistory, advancedCalculus]
 
 for classes in classSet {
-  if classes.count > 7 {
-    sevenPlus += 1
-  }
+    if classes.count > 7 {
+        sevenPlus += 1
+    }
 }
 
 if sevenPlus == 1 {
-  print("There is \(sevenPlus) class with seven or more students.")
+    print("There is \(sevenPlus) class with seven or more students.")
 } else {
-  print("There are \(sevenPlus) classes with seven or more students.")
+    print("There are \(sevenPlus) classes with seven or more students.")
 }

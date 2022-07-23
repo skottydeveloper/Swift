@@ -3,12 +3,12 @@ var secretMessage = "Goodbye".lowercased()
 var message = Array(secretMessage)
 
 for i in 0 ..< message.count {
-  for j in 0 ..< alphabet.count {
-    if message[i] == alphabet[j] {
-      message[i] = alphabet[(j + 3) % 26]
-      break
+    for j in 0 ..< alphabet.count {
+        if message[i] == alphabet[j] {
+            message[i] = alphabet[(j + 3) % 26]
+            break
+        }
     }
-  }
 }
 
 print(message)
