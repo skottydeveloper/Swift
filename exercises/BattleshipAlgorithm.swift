@@ -1,4 +1,4 @@
-// This algorithm is partially based on the solution that Apple has provided via Swift Playgrounds. It will be improved, as time goes on.
+// This algorithm is based on the solution that Apple has provided via Swift Playgrounds. It will be improved, as time goes on.
 
 // A coordinate that represents the origin of a targeted search.
 var tileToFollowFrom = Tile()
