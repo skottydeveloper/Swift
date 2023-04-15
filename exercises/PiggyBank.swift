@@ -1,12 +1,15 @@
-// This basic program converts the amount of each foreign currency and displays the total amount in AUD.
-var pesos: Double = 7688.50
-var reais: Double = 3124.60
-var soles: Double = 6145.70
+let currencyRates = [
+    "pesos": 0.068,
+    "reais": 0.27,
+    "soles": 0.37
+]
 
-var pesosRate: Double = 0.068 
-var reaisRate: Double = 0.27
-var solesRate: Double = 0.37
+let currencies = [
+    "pesos": 7688.50,
+    "reais": 3124.60,
+    "soles": 6145.70
+]
 
-var total: Double = pesos * pesosRate + reais * reaisRate + soles * solesRate 
+let total = currencies.reduce(0) { $0 + $1.value * currencyRates[$1.key]! }
 
-print("Total in AUD: $\(total)")
+print("Total in AUD: $\(total)") 

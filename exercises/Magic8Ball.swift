@@ -1,30 +1,19 @@
-var playerName = "Andreas"
-var playerQuestion = "Will we have flying cars?"
-var randomNumber = Int.random(in: 1...9)
-let eightBall: String;
+let playerName = "Andreas"
 
-switch randomNumber {
-    case 1:
-        eightBall = "Yes - definitely"
-    case 2:
-        eightBall = "It is decidedly so"
-    case 3:
-        eightBall = "Without a doubt"
-    case 4:
-        eightBall = "Reply hazy, try again"
-    case 5:
-        eightBall = "Ask again later"
-    case 6: 
-        eightBall = "Better not tell you now"
-    case 7:
-        eightBall = "My sources say no"
-    case 8:
-        eightBall = "Outlook not so good"
-    case 9:
-        eightBall = "Very doubtful"
-    default:
-        eightBall = "Error"  
-}
+let playerQuestion = "Will we have flying cars?"
 
-!playerName.isEmpty ? print("\(playerName) asks: \(playerQuestion)") : print("\(playerQuestion)")
-print("Magic 8 Ball's answer: \(eightBall)")
+let eightBallAnswers = [
+    "Yes - definitely",
+    "It is decidedly so",
+    "Without a doubt",
+    "Reply hazy, try again",
+    "Ask again later",
+    "Better not tell you now",
+    "My sources say no",
+    "Outlook not so good",
+    "Very doubtful"
+]
+
+print(!playerName.isEmpty ? "\(playerName) asks: \(playerQuestion)" : playerQuestion)
+
+print("Magic 8 Ball's answer: \(eightBallAnswers.randomElement()!)")

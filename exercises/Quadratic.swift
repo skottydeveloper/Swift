@@ -1,13 +1,9 @@
-// This basic program solves the quadratic equation for "x".
-var a: Double = 2.0
-var b: Double = 5.0
-var c: Double = 3.0
+let a = 2.0, b = 5.0, c = 3.0
 
-var root1: Double
-var root2: Double
+let discriminant = b * b - 4 * a * c
 
-root1 = (-b + (b * b - 4 * a * c).squareRoot()) / (2 * a)
-root2 = (-b - (b * b - 4 * a * c).squareRoot()) / (2 * a)
+let root1 = (-b + discriminant.squareRoot()) / (2 * a)
 
-print("Root 1: \(root1)")
-print("Root 2: \(root2)")
+let root2 = (-b - discriminant.squareRoot()) / (2 * a)
+
+print("Root 1: \(root1)\nRoot 2: \(root2)")

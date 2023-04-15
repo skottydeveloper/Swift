@@ -1,10 +1,11 @@
-// Write your code below 🥛
-var numBottles: Int = 99
-
-for numBottles in stride(from: 99, to: 0, by: -1) {
-    print("\(numBottles) bottles of milk on the wall, \(numBottles) bottles of milk!")
+for numBottles in (0...99).reversed() {
+    let bottleString = numBottles == 1 ? "bottle" : "bottles"
+    let nextNumBottles = numBottles > 0 ? numBottles - 1 : 99
+    let nextBottleString = nextNumBottles == 1 ? "bottle" : "bottles"
+    
+    print("\(numBottles) \(bottleString) of milk on the wall, \(numBottles) \(bottleString) of milk!")
     print("You take one down and pass it around...")
-    print("\(numBottles-1) bottles of milk on the wall!")
+    print("\(nextNumBottles) \(nextBottleString) of milk on the wall!\n")
 }
 
-print("0 bottles of milk on the wall, 0 bottles of milk!\nGo to the store and buy some more,\n99 bottles of milk on the wall!")
+print("Go to the store and buy some more, 99 bottles of milk on the wall!")

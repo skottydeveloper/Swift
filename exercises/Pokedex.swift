@@ -1,8 +1,8 @@
 class Pokemon {
-    var num = 0
-    var name = ""
-    var type = [""]
-    var ability = [""]
+    let num: Int
+    let name: String
+    let type: [String]
+    let ability: [String]
 
     init(num: Int, name: String, type: [String], ability: [String]) {
         self.num = num
@@ -12,16 +12,18 @@ class Pokemon {
     }
 
     func displayInfo() {
-        print("No.        #\(num)")
-        print("Name       \(name)")
-        print("Type       \(type)")
-        print("Abilities  \(ability)")
-        print("===================================")
+        print("""
+              No.        #\(num)
+              Name       \(name)
+              Type       \(type.joined(separator: ", "))
+              Abilities  \(ability.joined(separator: ", "))
+              ===================================
+              """)
     }
 }
 
 class GigantamaxPokemon: Pokemon {
-    var location = ""
+    let location: String
 
     init(num: Int, name: String, type: [String], ability: [String], location: String) {
         self.location = location
@@ -29,19 +31,15 @@ class GigantamaxPokemon: Pokemon {
     }
   
     override func displayInfo() {
-        print("No.        #\(num)")
-        print("Name       \(name)")
-        print("Type       \(type)")
-        print("Abilities  \(ability)")
+        super.displayInfo()
         print("Location   \(location)")
-        print("===================================")
     }
 }
 
-var bulbasaur = Pokemon(num: 1, name: "Bulbasaur", type: ["Grass 🌱", "Poison 💀"], ability: ["Overgrow"])
-var charmander = Pokemon(num: 4, name: "Charmander", type: ["Fire 🔥"], ability: ["Blaze"])
-var squirtle = Pokemon(num: 7, name: "Squirtle", type: ["Water 💧"], ability: ["Torrent"])
-var charizard = GigantamaxPokemon(num: 6, name: "Charizard", type: ["Fire 🔥"], ability: ["Blaze"], location: "Lake of Outrage")
+let bulbasaur = Pokemon(num: 1, name: "Bulbasaur", type: ["Grass 🌱", "Poison 💀"], ability: ["Overgrow"])
+let charmander = Pokemon(num: 4, name: "Charmander", type: ["Fire 🔥"], ability: ["Blaze"])
+let squirtle = Pokemon(num: 7, name: "Squirtle", type: ["Water 💧"], ability: ["Torrent"])
+let charizard = GigantamaxPokemon(num: 6, name: "Charizard", type: ["Fire 🔥"], ability: ["Blaze"], location: "Lake of Outrage")
 
 bulbasaur.displayInfo()
 charmander.displayInfo()

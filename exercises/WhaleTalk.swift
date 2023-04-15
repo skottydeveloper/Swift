@@ -1,19 +1,19 @@
-var input = "whale talk"
-var output = ""
+let input = "whale talk"
+let vowels: [Character] = ["a", "e", "i", "o", "u"]
 
-for char in input {
+let output = input.map { char -> String in
     let lowerChar = char.lowercased()
-
+    
     switch lowerChar {
-        case "a", "i", "o":
-            output += lowerChar.uppercased()
+        case let c where vowels.contains(c):
+            return c.uppercased()
         case "e":
-            output += "EE"
+            return "EE"
         case "u":
-            output += "UU"
+            return "UU"
         default:
-            continue    
+            return ""
     }
-}
+}.joined()
 
 print(output)

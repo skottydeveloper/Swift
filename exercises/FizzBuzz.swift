@@ -1,11 +1,12 @@
 for num in 1...100 {
-    if num % 3 == 0 && num % 5 == 0 { 
+    switch (num % 3 == 0, num % 5 == 0) {
+    case (true, true):
         print("FizzBuzz")
-    } else if num % 3 == 0 {
+    case (true, false):
         print("Fizz")
-    } else if num % 5 == 0 {
+    case (false, true):
         print("Buzz")
-    } else {
+    case (false, false):
         print(num)
     }
 }
