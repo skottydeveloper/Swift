@@ -1,5 +1,4 @@
 import SwiftUI
-//#-learning-task(favoritesView)
 
 struct FavoritesView: View {
     var body: some View {

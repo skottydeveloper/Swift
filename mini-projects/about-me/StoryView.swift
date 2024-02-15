@@ -2,8 +2,6 @@ import SwiftUI
 
 struct StoryView: View {
     var body: some View {
-        /*#-code-walkthrough(StoryView.starterCode)*/
-        /*#-code-walkthrough(StoryView.scrollView)*/
         VStack {
             Text("My Story")
                 .font(.largeTitle)
@@ -17,8 +15,6 @@ struct StoryView: View {
             }
         }
         .padding([.top, .bottom], 50)
-        /*#-code-walkthrough(StoryView.modifiers)*/
-        /*#-code-walkthrough(StoryView.starterCode)*/
     }
 }
 
