@@ -2,7 +2,6 @@ import SwiftUI
 
 struct ThirdChapter: Story {
     var myStory: some Prose {
-        /*#-code-walkthrough(1.finalStory)*/
         TitlePage {
             Picture(.wizardLibrary)
             Chapter(number: 3)
@@ -22,7 +21,6 @@ struct ThirdChapter: Story {
                 Picture(.treasure)
             }
         }
-        /*#-code-walkthrough(1.finalStory)*/
     }
 }
 

@@ -3,7 +3,6 @@ import SwiftUI
 struct SecondChapter: Story {
     var myStory: some Prose {
         TitlePage {
-            /*#-code-walkthrough(0.multipage)*/
             Picture(.elfFairyLand)
             Chapter(number: 2)
             Title("The Crossroads Decision: An Elf Family's Dilemma")
@@ -23,9 +22,7 @@ struct SecondChapter: Story {
                 
                 "Their decision to embrace their roots while opening to change ensured their culture's survival, proving resilience and unity can overcome adversity."
             }
-            /*#-code-walkthrough(0.multipage)*/
         }
-        /*#-code-walkthrough(1.multipage)*/
     }
 }
 

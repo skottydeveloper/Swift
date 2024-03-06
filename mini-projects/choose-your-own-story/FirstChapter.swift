@@ -5,7 +5,6 @@ struct FirstChapter: Story {
         TitlePage {
             Picture(.spaceWhale)
             Chapter(number: 1)
-            /*#-code-walkthrough(2a.writeTheStory)*/
             Title("The Cosmic Voyage of Whalaxy: The Spacefaring Whale")
             
             StoryPage {
@@ -21,9 +20,7 @@ struct FirstChapter: Story {
                 
                 PageBreak()
             }
-            /*#-code-walkthrough(2a.writeTheStory)*/
         }
-        /*#-code-walkthrough(2b.writeTheStory)*/
     }
 }
 

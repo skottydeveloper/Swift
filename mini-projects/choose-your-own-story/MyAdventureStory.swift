@@ -3,11 +3,9 @@ import SwiftUI
 struct CoverPage: Story {
     var myStory: some Prose {
         ChoicePage {
-            /*#-code-walkthrough(2.adventureStory)*/
             Picture(.astronautOopsy)
             Title("Marooned on Mirage: An Astronaut's Odyssey")
             Choice(title: "Begin Your Story", destination: 1)
-            /*#-code-walkthrough(2.adventureStory)*/
         }
     }
 }
@@ -16,7 +14,6 @@ struct PageOne: Story {
     var myStory: some Prose {
         ChoicePage {
             Picture(.astronautOopsy)
-            /*#-code-walkthrough(3.adventureStory)*/
             "Captain Elara Sterling's mission took an unexpected turn when a cosmic storm caused her spacecraft, the Odyssey Explorer, to crash on an uncharted planet. Waking from the impact, Elara found herself in a world unlike any other, with glittering landscapes and ethereal light."
             
             PageBreak()
@@ -33,13 +30,10 @@ struct PageOne: Story {
             
             Choice(title: "Path to the Crystal Caverns", destination: 2)
             Choice(title: "Voyage Across the Silver Canopies", destination: 3)
-            /*#-code-walkthrough(3.adventureStory)*/
-            /*#-code-walkthrough(4.adventureStory)*/
         }
     }
 }
 
-/*#-code-walkthrough(5.adventureStory)*/
 struct PageTwo: Story {
     var myStory: some Prose {
         ChoicePage {
@@ -63,7 +57,6 @@ struct PageTwo: Story {
 struct PageThree: Story {
     var myStory: some Prose {
         ChoicePage {
-            /*#-code-walkthrough(4.codeChoices)*/
             Picture(.wizardLibrary)
             
             "Choosing to explore the vast forests of Mirage, Elara ventured into the realm of the silver canopies, where the ground rarely saw the light of day. The trees, towering and majestic, seemed to communicate through whispers carried by the wind, guiding her path and warning her of dangers."
@@ -81,15 +74,10 @@ struct PageThree: Story {
             "Both paths presented Elara with unprecedented discoveries and decisions. Whether delving into the ancient secrets of the Crystal Caverns or bonding with the sentient life of the silver canopies, her journey on Mirage was a testament to the endless possibilities that lay beyond the stars, highlighting the resilience and adaptability of the human spirit in the face of the unknown."
             
             Choice(title: "Bonding with the Planet", destination: 5)
-            /*#-code-walkthrough(4.codeChoices)*/
         }
     }
 }
-/*#-code-walkthrough(5.adventureStory)*/
 
-/*#-code-walkthrough(2.codeChoices)*/
-//#-learning-task(codeChoices)
-/*#-code-walkthrough(2.codeChoices)*/
 struct PageFour: Story {
     var myStory: some Prose {
         ChoicePage {
@@ -136,16 +124,11 @@ struct MyAdventureBook: StoryBook {
     var stories: some Stories {
         CoverPage() // 0
         PageOne() // 1
-        /*#-code-walkthrough(3.doorAdventure)*/
         PageTwo() // 2
         PageThree() // 3
-        /*#-code-walkthrough(3.doorAdventure)*/
-        /*#-code-walkthrough(3.codeChoices)*/
         PageFour() // 4
-        /*#-code-walkthrough(3.codeChoices)*/
         PageFive() // 5
     }
-    /*#-code-walkthrough(4.doorAdventure)*/
 }
 
 struct MyAdventureStory_Previews : PreviewProvider {
