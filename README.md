@@ -2,7 +2,7 @@
 ## Summary
 This repository is a portfolio of code for the Swift programming language. It consists of projects I have completed, during uni and in my own time - while learning Swift.
 
-## Mini Projects & Exercises
+## Swift Playgrounds Tutorials & Exercises
 Consists of basic, miniature projects and exercises that demonstrate my knowledge in each feature of the Swift programming language. For example, one exercise will demonstrate the application of knowledge in for and while loops, while another will demonstrate the application of knowledge in switch statements. These projects also help me solidify my knowledge and help me revise in what I've previously learnt - with the Swift programming language.
 
 ## Notable Projects
