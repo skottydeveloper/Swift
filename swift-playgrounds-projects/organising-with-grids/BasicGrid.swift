@@ -2,9 +2,7 @@ import SwiftUI
 
 struct BasicGrid: View {
     var body: some View {
-        /*#-code-walkthrough(basicGrid)*/
         Grid(alignment: .top, horizontalSpacing: 10, verticalSpacing: 10) {
-            /*#-code-walkthrough(basicGrid)*/
             GridRow {
                 Color.red
                 Color.orange
@@ -34,4 +32,3 @@ struct BasicGrid_Previews: PreviewProvider {
         BasicGrid()
     }
 }
-

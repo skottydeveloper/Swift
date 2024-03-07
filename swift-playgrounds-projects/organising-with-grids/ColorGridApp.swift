@@ -1,4 +1,3 @@
-//#-learning-code-snippet(colorGridApp)
 import SwiftUI
 
 @main
