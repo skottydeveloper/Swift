@@ -1,21 +1,12 @@
 import SwiftUI
-//#-learning-task(event)
 
-/*#-code-walkthrough(2.eventType)*/
-/*#-code-walkthrough(6.codable)*/
 struct Event: Identifiable, Hashable, Codable {
-    /*#-code-walkthrough(6.codable)*/
-    /*#-code-walkthrough(2.eventType)*/
-    /*#-code-walkthrough(2.eventProperties)*/
     var id = UUID()
     var symbol: String = EventSymbols.randomName()
     var color: RGBAColor = ColorOptions.random().rgbaColor
     var title = ""
     var tasks = [EventTask(text: "")]
     var date = Date.now
-    /*#-code-walkthrough(2.eventProperties)*/
-
-    /*#-code-walkthrough(2.computedProperties)*/
     var period: Period {
         if date < Date.now{
             return .past
@@ -38,7 +29,6 @@ struct Event: Identifiable, Hashable, Codable {
     var isComplete: Bool {
         tasks.allSatisfy { $0.isCompleted || $0.text.isEmpty }
     }
-    /*#-code-walkthrough(2.computedProperties)*/
 
     static var example = Event(
         symbol: "case.fill",

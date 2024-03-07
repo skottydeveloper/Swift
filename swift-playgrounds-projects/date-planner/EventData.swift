@@ -1,10 +1,6 @@
 import SwiftUI
-//#-learning-task(eventData)
 
-/*#-code-walkthrough(4.eventData)*/
 class EventData: ObservableObject {
-    /*#-code-walkthrough(4.eventData)*/
-    /*#-code-walkthrough(4.events)*/
     @Published var events: [Event] = [
         Event(symbol: "gift.fill",
               color: Color.red.rgbaColor,
@@ -86,7 +82,6 @@ class EventData: ObservableObject {
               ],
               date: Date.roundedHoursFromNow(60 * 60 * 24 * 19)),
     ]
-    /*#-code-walkthrough(4.events)*/
     
     func add(_ event: Event) {
         events.append(event)
@@ -112,8 +107,7 @@ class EventData: ObservableObject {
             }
         )
     }
-    /*#-code-walkthrough(4.methods)*/
-    
+
     func getBindingToEvent(_ event: Event) -> Binding<Event>? {
         Binding<Event>(
             get: {
@@ -126,47 +120,31 @@ class EventData: ObservableObject {
             }
         )
     }
-    /*#-code-walkthrough(7.fileURL)*/
+
     private static func getEventsFileURL() throws -> URL {
         FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
             .appendingPathComponent("events.data")
     }
-    /*#-code-walkthrough(7.fileURL)*/
-    //#-learning-task(loadFunc)
+
     func load() {
         do {
-            /*#-code-walkthrough(7.loadfileURL)*/
             let fileURL = try EventData.getEventsFileURL()
-            /*#-code-walkthrough(7.loadfileURL)*/
-            /*#-code-walkthrough(7.loadData)*/
             let data = try Data(contentsOf: fileURL)
-            /*#-code-walkthrough(7.loadData)*/
-            /*#-code-walkthrough(7.loadDataDecode)*/
             events = try JSONDecoder().decode([Event].self, from: data)
-            /*#-code-walkthrough(7.loadDataDecode)*/
             print("Events loaded: \(events.count)")
         } catch {
-            /*#-code-walkthrough(7.loadFail)*/
             print("Failed to load from file. Backup data used")
-            /*#-code-walkthrough(7.loadFail)*/
         }
     }
     
-    //#-learning-task(saveFunc)
     func save() {
         do {
             let fileURL = try EventData.getEventsFileURL()
-            /*#-code-walkthrough(8.saveEncode)*/
             let data = try JSONEncoder().encode(events)
-            /*#-code-walkthrough(8.saveEncode)*/
-            /*#-code-walkthrough(8.saveWrite)*/
             try data.write(to: fileURL, options: [.atomic, .completeFileProtection])
-            /*#-code-walkthrough(8.saveWrite)*/
             print("Events saved")
         } catch {
-            /*#-code-walkthrough(8.saveFail)*/
             print("Unable to save")
-            /*#-code-walkthrough(8.saveFail)*/
         }
     }
 }
