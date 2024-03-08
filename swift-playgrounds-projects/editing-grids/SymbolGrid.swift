@@ -1,5 +1,4 @@
 import SwiftUI
-//#-learning-task(symbolGrid)
 
 struct SymbolGrid: View {
     @State private var isAddingSymbol = false
@@ -9,7 +8,6 @@ struct SymbolGrid: View {
     @State private var numColumns = initialColumns
     @State private var gridColumns = Array(repeating: GridItem(.flexible()), count: initialColumns)
     
-    /*#-code-walkthrough(3.symbolNames)*/
     @State private var symbols = [
         Symbol(name: "tshirt"),
         Symbol(name: "eyes"),
@@ -25,7 +23,6 @@ struct SymbolGrid: View {
         Symbol(name: "theatermasks.fill"),
         Symbol(name: "moon.stars"),
     ]
-    /*#-code-walkthrough(3.symbolNames)*/
     
     var body: some View {
         VStack {
@@ -35,13 +32,10 @@ struct SymbolGrid: View {
                 }
                 .padding()
             }
-            /*#-code-walkthrough(3.lazyVGrid)*/
+
             ScrollView {
                 LazyVGrid(columns: gridColumns) {
-                    /*#-code-walkthrough(3.lazyVGrid)*/
-                    /*#-code-walkthrough(3.forEach)*/
                     ForEach(symbols) { symbol in
-                        /*#-code-walkthrough(3.forEach)*/
                         NavigationLink {
                             SymbolDetail(symbol: symbol)
                                 .overlay(alignment: .topTrailing) {
@@ -63,9 +57,7 @@ struct SymbolGrid: View {
                                 .symbolRenderingMode(.hierarchical)
                                 .foregroundColor(.accentColor)
                                 .padding()
-                            //#-learning-code-snippet(addLabelNavLink)
                         }
-                        /*#-code-walkthrough(3.imageView)*/
                     }
                 }
             }
@@ -87,12 +79,9 @@ struct SymbolGrid: View {
                 }
             }
         }
-        /*#-code-walkthrough(onDismiss)*/
+
         .sheet(isPresented: $isAddingSymbol, onDismiss: addSymbol) {
-            /*#-code-walkthrough(onDismiss)*/
-            /*#-code-walkthrough(symbolPicker)*/
             SymbolPicker(symbol: $selectedSymbol)
-            /*#-code-walkthrough(symbolPicker)*/
         }
     }
     
