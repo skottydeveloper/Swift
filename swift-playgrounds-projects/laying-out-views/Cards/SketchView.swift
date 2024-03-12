@@ -88,7 +88,6 @@ struct SketchView: View {
     }
 }
 
-
 struct SketchView_Previews : PreviewProvider {
     static var previews: some View {
         SketchView(value: .constant([Line(points: [CGPoint(), CGPoint()], color: Color.black, lineWidth: 5)]), isEditing: true, fontStyle: .font1, size: .large)

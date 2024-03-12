@@ -2,7 +2,6 @@ import SwiftUI
 
 struct HalfCard: View {
     var body: some View {
-        /*#-code-walkthrough(6.debugCrown)*/
         VStack {
             Spacer()
             
@@ -10,9 +9,6 @@ struct HalfCard: View {
                 .font(.system(size: 80))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        
-        /*#-code-walkthrough(6.debugCrown)*/
-        /*#-code-walkthrough(thinkAboutModifiers)*/
         .overlay (alignment: .topLeading) {
             VStack {
                 Image(systemName: "crown.fill")
@@ -29,13 +25,11 @@ struct HalfCard: View {
 
 struct DebuggingView: View {
     var body: some View {
-        /*#-code-walkthrough(6.halfCardExplain)*/
         VStack {
             HalfCard()
             HalfCard()
                 .rotationEffect(.degrees(180))
         }
-        /*#-code-walkthrough(6.halfCardExplain)*/
         .background(
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color.black)

@@ -106,6 +106,3 @@ struct AddNewCardLabel: View {
         .padding(.vertical)
     }
 }
-
-
-

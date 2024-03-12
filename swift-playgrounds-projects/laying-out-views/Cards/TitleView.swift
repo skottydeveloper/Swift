@@ -23,7 +23,6 @@ struct TitleView: View {
     }
 }
 
-
 struct TitleView_Previews: PreviewProvider {
     static var previews: some View {
         TitleView(entry: .constant(Entry()), isEditing: false)

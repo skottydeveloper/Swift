@@ -34,7 +34,6 @@ extension UIColor {
     }
 }
 
-
 extension Color {
     static let bannerBlue = Color("banner-blue")
     static let bannerOrange = Color("banner-orange")
@@ -71,8 +70,4 @@ extension Color {
     static let themePink = Color("theme-pink")
     static let themeRed = Color("theme-red")
     static let themeTeal = Color("theme-teal")
-    
-
-    
-    
 }

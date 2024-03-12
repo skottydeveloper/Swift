@@ -1,7 +1,6 @@
 import Foundation
 
 extension FileManager {
-    
     /// The URL of the document directory.
     var documentDirectory: URL {
         do {

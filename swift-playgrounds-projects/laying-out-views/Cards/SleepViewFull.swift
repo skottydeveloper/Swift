@@ -5,7 +5,6 @@ struct SleepViewFull: View {
     var isEditing: Bool
     var fontStyle: JournalFont
 
-
     var body: some View {
         VStack(alignment: .leading) {
             Text(isEditing ? "How many hours did you sleep?" : "Hours Slept: \(Int(value))")

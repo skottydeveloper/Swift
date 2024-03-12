@@ -1,10 +1,8 @@
 import SwiftUI
 
 struct ViewSizing: View {
-
     var body: some View {
         HStack {
-            /*#-code-walkthrough(3.viewSizing)*/
             Rectangle()
                 .frame(maxWidth: 50)
             

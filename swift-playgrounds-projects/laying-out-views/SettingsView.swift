@@ -68,4 +68,3 @@ struct SettingsView_Previews : PreviewProvider {
         SettingsView(entry: .constant(Entry()), showingSheet: .constant(true))
     }
 }
-

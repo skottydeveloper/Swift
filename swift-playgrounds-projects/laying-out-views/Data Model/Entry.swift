@@ -60,7 +60,6 @@ enum JournalFont: String, CaseIterable, Codable {
     case font3 = "Times New Roman"
 }
 
-
 enum JournalTheme: String, CaseIterable, Codable {
     case line
     case curve
@@ -68,5 +67,3 @@ enum JournalTheme: String, CaseIterable, Codable {
     case ray
     case wave
 }
-
-

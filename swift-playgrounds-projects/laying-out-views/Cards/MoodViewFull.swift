@@ -9,12 +9,10 @@ struct MoodViewFull: View {
     
     var body: some View {
         VStack {
-            /*#-code-walkthrough(7.moodTitleExplain)*/
             Text(isEditing ? "What's your mood?" : "Mood")
                 .foregroundColor(.darkBrown)
                 .font(fontStyle.uiFont(15))
                 .frame(maxWidth: .infinity, alignment: isEditing ? .leading : .center)
-            /*#-code-walkthrough(7.moodTitleExplain)*/
 
             HStack {
                 if isEditing {
@@ -44,10 +42,8 @@ struct MoodViewFull: View {
             }
             .frame(maxHeight: .infinity, alignment: .center)
         }
-        /*#-code-walkthrough(7.moodCardFrameExplain)*/
         .frame(minHeight: 100, maxHeight: 200)
         .padding()
-        /*#-code-walkthrough(7.moodCardFrameExplain)*/
     }
 }
 

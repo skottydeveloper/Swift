@@ -2,14 +2,12 @@ import SwiftUI
 
 struct OrganizingViews: View {
     var body: some View {
-        /*#-code-walkthrough(1.containers)*/
         VStack {
             Circle()
             Circle()
             Circle()
             Capsule()
             
-            //#-learning-code-snippet(2.containers)
             HStack {
                 Rectangle()
                 Rectangle()
@@ -38,11 +36,8 @@ struct OrganizingViews: View {
                 }
             }
         }
-        /*#-code-walkthrough(1.containers)*/
     }
 }
-
-
 
 struct OrganizingViews_Previews : PreviewProvider {
     static var previews: some View {

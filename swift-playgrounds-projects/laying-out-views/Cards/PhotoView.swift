@@ -118,6 +118,3 @@ struct PhotoView_Previews : PreviewProvider {
             .background(CardBackground())
     }
 }
-
-
-

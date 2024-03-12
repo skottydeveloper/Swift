@@ -2,7 +2,6 @@ import SwiftUI
 
 struct PatternChallengeView: View {
     var body: some View {
-        /*#-code-walkthrough(2.patternChallenge)*/
         VStack {
             ZStack {
                 Rectangle()
@@ -11,12 +10,10 @@ struct PatternChallengeView: View {
                     .foregroundColor(.themePink)
             } 
 
-        /*#-code-walkthrough(2.patternChallenge)*/
-            /*#-code-walkthrough(3.patternChallenge)*/
             ZStack {
                 Rectangle()
                     .foregroundColor(.themeBlue)
-                /*#-code-walkthrough(5.patternChallenge)*/
+
                 HStack {
                     Circle()
                         .foregroundColor(.themeRed)

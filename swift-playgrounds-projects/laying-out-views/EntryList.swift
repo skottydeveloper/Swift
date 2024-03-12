@@ -71,5 +71,3 @@ struct SelectEntryView: View {
             .ignoresSafeArea()
     }
 }
-
-

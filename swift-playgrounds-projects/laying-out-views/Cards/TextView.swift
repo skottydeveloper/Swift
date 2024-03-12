@@ -70,4 +70,3 @@ struct TextView_Previews : PreviewProvider {
             .background(CardBackground())
     }
 }
-
