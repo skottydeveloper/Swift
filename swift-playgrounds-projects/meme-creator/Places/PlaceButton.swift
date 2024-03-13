@@ -1,9 +1,7 @@
 import SwiftUI
 
-/*#-code-walkthrough(placeButton)*/
 struct PlaceButton: View {
     var place: PandaPlace
-    /*#-code-walkthrough(placeButton)*/
     
     @State private var popoverSize = CGSize(width: 300, height: 300)
     @State private var isShowingPopover = false

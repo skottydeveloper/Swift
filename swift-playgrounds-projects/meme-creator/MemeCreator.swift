@@ -1,12 +1,7 @@
 import SwiftUI
-//#-learning-task(memeCreator)
 
-/*#-code-walkthrough(5.memeCreator)*/
 struct MemeCreator: View, Sendable {
-    /*#-code-walkthrough(5.memeCreator)*/
-    /*#-code-walkthrough(5.fetcher)*/
     @EnvironmentObject var fetcher: PandaCollectionFetcher
-    /*#-code-walkthrough(5.fetcher)*/
     
     @State private var memeText = ""
     @State private var textSize = 60.0
@@ -21,10 +16,8 @@ struct MemeCreator: View, Sendable {
     var body: some View {
         VStack(alignment: .center) {
             Spacer()
-            /*#-code-walkthrough(5.loadableImage)*/
+
             LoadableImage(imageMetadata: fetcher.currentPanda, cachedImage: $memeImage, size: $memeSize)
-            /*#-code-walkthrough(5.loadableImage)*/
-                /*#-code-walkthrough(5.overlay)*/
                 .overlay(alignment: .bottom) {
                     TextField(
                         "Address",
@@ -38,13 +31,11 @@ struct MemeCreator: View, Sendable {
                     .padding()
                     .multilineTextAlignment(.center)
                 }
-                /*#-code-walkthrough(5.overlay)*/
                 .frame(minHeight: 150)
 
             Spacer()
             
             if !memeText.isEmpty {
-                /*#-code-walkthrough(5.sizeAndColorPickers)*/
                 VStack {
                     HStack {
                         Text("Font Size")
@@ -60,14 +51,12 @@ struct MemeCreator: View, Sendable {
                         Spacer()
                     }
                 }
-                /*#-code-walkthrough(5.sizeAndColorPickers)*/
                 .padding(.vertical)
                 .frame(maxWidth: 325)
                 
             }
 
             HStack {
-                /*#-code-walkthrough(5.randomImageButton)*/
                 Button {
                     if let randomImage = fetcher.imageData.sample.randomElement() {
                         fetcher.currentPanda = randomImage
@@ -81,9 +70,7 @@ struct MemeCreator: View, Sendable {
                     }
                     .frame(maxWidth: 180, maxHeight: .infinity)
                 }
-                /*#-code-walkthrough(5.randomImageButton)*/
 
-                /*#-code-walkthrough(5.focusButton)*/
                 Button {
                     isFocused = true
                 } label: {
@@ -95,7 +82,6 @@ struct MemeCreator: View, Sendable {
                     }
                     .frame(maxWidth: 180, maxHeight: .infinity)
                 }
-                /*#-code-walkthrough(5.focusButton)*/
             }
             .buttonStyle(.bordered)
             .controlSize(.large)
@@ -106,17 +92,13 @@ struct MemeCreator: View, Sendable {
             }
         }
         .padding()
-        /*#-code-walkthrough(5.task)*/
         .task {
-            /*#-code-walkthrough(5.asyncDataLoading)*/
             do {
                 try await fetcher.fetchData()
             } catch {
                 errorMessage = error.localizedDescription
             }
-            /*#-code-walkthrough(5.asyncDataLoading)*/
         }
-        /*#-code-walkthrough(5.task)*/
         .navigationTitle("Meme Creator")
         .toolbar(content: {
             ShareLink(

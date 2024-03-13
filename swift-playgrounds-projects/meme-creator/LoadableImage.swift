@@ -1,24 +1,15 @@
 import SwiftUI
-//#-learning-task(loadableImage)
 
-/*#-code-walkthrough(4.loadableImage)*/
 struct LoadableImage: View {
-    /*#-code-walkthrough(4.loadableImage)*/
-    /*#-code-walkthrough(4.imageMetaData)*/
     var imageMetadata: Panda
-    /*#-code-walkthrough(4.imageMetaData)*/
     
     @Binding var cachedImage: Image?
     @Binding var size: CGSize
     
     var body: some View {
-        /*#-code-walkthrough(4.asyncImage)*/
-        AsyncImage(url: imageMetadata.imageUrl) {/*#-code-walkthrough(4.phase)*/ phase in /*#-code-walkthrough(4.phase)*/
-            /*#-code-walkthrough(4.asyncImage)*/
-            /*#-code-walkthrough(4.phaseImage)*/
+        AsyncImage(url: imageMetadata.imageUrl) { phase in
             if let image = phase.image {
                 image
-                /*#-code-walkthrough(4.phaseImage)*/
                     .resizable()
                     .scaledToFit()
                     .cornerRadius(15)
@@ -34,7 +25,7 @@ struct LoadableImage: View {
                         }
                     }
                 let _ = cacheImage(image)
-            } /*#-code-walkthrough(4.phaseError)*/ else if phase.error != nil /*#-code-walkthrough(4.phaseError)*/ {
+            } else if phase.error != nil {
                 VStack {
                     Image("pandaplaceholder")
                         .resizable()
@@ -47,9 +38,7 @@ struct LoadableImage: View {
                 }
                 
             } else {
-                /*#-code-walkthrough(4.progressView)*/
                 ProgressView()
-                /*#-code-walkthrough(4.progressView)*/
             }
         }
     }

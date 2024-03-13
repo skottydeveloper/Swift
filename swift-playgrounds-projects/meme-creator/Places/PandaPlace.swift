@@ -1,13 +1,8 @@
 import CoreLocation
 import MapKit
 
-/*#-code-walkthrough(pandaPlace.PandaPlace)*/
 struct PandaPlace: Identifiable, Codable {
-    /*#-code-walkthrough(pandaPlace.PandaPlace)*/
-    /*#-code-walkthrough(pandaPlace.id)*/
     var id: Int
-    /*#-code-walkthrough(pandaPlace.id)*/
-    //#-learning-code-snippet(pandaPlace.properties)
     var name: String
     var address: String
     var latitude: Double

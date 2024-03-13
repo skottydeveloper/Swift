@@ -83,5 +83,3 @@ private struct SizePreferenceKey: PreferenceKey {
         value = nextValue()
     }
 }
-
-
