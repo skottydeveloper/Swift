@@ -1,10 +1,6 @@
 import SwiftUI
-//#-learning-task(longPressView)
 
-/*#-code-walkthrough(2.capsule)*/
 struct LongPressView: View {
-    /*#-code-walkthrough(2.capsule)*/
-    /*#-code-walkthrough(2.setUp)*/
     @State private var sizeIndex = 0
     @GestureState var isDetectingLongPress = false
     
@@ -15,12 +11,9 @@ struct LongPressView: View {
         CGSize(width: 220, height: 100),
         CGSize(width: 90, height: 90),
     ]
-    /*#-code-walkthrough(2.setUp)*/
-    
-    /*#-code-walkthrough(2.longPress)*/
+
     var longPressGesture: some Gesture {
         LongPressGesture()
-        /*#-code-walkthrough(2.onEndedEvent)*/
             .onEnded { value in
                 withAnimation {
                     sizeIndex += 1
@@ -28,25 +21,19 @@ struct LongPressView: View {
                         sizeIndex = 0
                     }
                 }
-                /*#-code-walkthrough(2.onEndedEvent)*/
             }
             .updating($isDetectingLongPress) { currentState, gestureState, transaction in
                 gestureState = currentState
             }
     }
-    /*#-code-walkthrough(2.longPress)*/
     
     var body: some View {
         VStack {
             Spacer()
             Capsule()
                 .foregroundColor(.yellow)
-            /*#-code-walkthrough(2.frame)*/
                 .frame(width: sizes[sizeIndex].width, height: sizes[sizeIndex].height)
-            /*#-code-walkthrough(2.frame)*/
-            /*#-code-walkthrough(2.applyingTheSize)*/
                 .gesture(longPressGesture)
-                /*#-code-walkthrough(2.applyingTheSize)*/
                 .shadow(color: .shadowColor, radius: isDetectingLongPress ? 20 : 0)
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(.purple)
@@ -82,7 +69,6 @@ struct LongPressView_Previews: PreviewProvider {
         LongPressView()
     }
 }
-
 
 extension Color {
     static let shadowColor = Color("shadowColor")

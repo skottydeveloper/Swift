@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     enum NavigationOption {
         case tap, longPress, drag, rotate, line
     }
@@ -25,7 +24,6 @@ struct ContentView: View {
             .navigationTitle("Gestures")
             
         } detail: {
-            
             if let selection {
                 switch selection {
                 case .tap: TapView()

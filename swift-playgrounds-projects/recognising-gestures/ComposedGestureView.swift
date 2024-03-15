@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct ComposedGestureView: View {
-    
     @State private var isClosed = true
     
     let singleTapGesture = TapGesture()

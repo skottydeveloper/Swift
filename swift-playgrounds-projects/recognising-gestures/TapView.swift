@@ -1,44 +1,26 @@
 import SwiftUI
-//#-learning-code-snippet(tapView)
 
-/*#-code-walkthrough(1.tapView)*/
 struct TapView: View {
-    /*#-code-walkthrough(1.tapView)*/
     @State private var isScaled = false
-    
-    /*#-code-walkthrough(1.setUp)*/
     @State private var color : Color = Color.primary
-    /*#-code-walkthrough(1.setUp)*/
-    
-    /*#-code-walkthrough(1.tapGesture)*/
+
     var tapGesture: some Gesture {
-        /*#-code-walkthrough(1.gestureDefinition)*/
-        /*#-code-walkthrough(tapGestureParams)*/
         TapGesture(count: 2)
-        /*#-code-walkthrough(tapGestureParams)*/
             .onEnded {
                 withAnimation {
                     color = Color.random()
                     isScaled.toggle()
                 }
             }
-        /*#-code-walkthrough(1.gestureDefinition)*/
     }
-    /*#-code-walkthrough(1.tapGesture)*/
     
     var body: some View {
         VStack {
             Spacer()
-            /*#-code-walkthrough(1.rectangle)*/
             Rectangle()
-            /*#-code-walkthrough(1.rectangle)*/
-            /*#-code-walkthrough(1.foregroundColor)*/
                 .foregroundColor(color)
-            /*#-code-walkthrough(1.foregroundColor)*/
                 .frame(width: 250, height: 350)
-            /*#-code-walkthrough(1.applyingTheColor)*/
                 .gesture(tapGesture)
-                /*#-code-walkthrough(1.applyingTheColor)*/
                 .scaleEffect(isScaled ? 1 : 0.25)
             Circle()
                 .frame(width: 200, height: 200)
