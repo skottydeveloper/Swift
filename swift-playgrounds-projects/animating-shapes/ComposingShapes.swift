@@ -1,11 +1,8 @@
 import SwiftUI
 
 struct ComposingShapesView: View {
-    
    private let arcCount = 6
-    /*#-code-walkthrough(4.shapeCreations)*/
    private let colors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple]
-    /*#-code-walkthrough(4.shapeCreations)*/
     
     var body: some View {
         VStack {
@@ -19,6 +16,7 @@ struct ComposingShapesView: View {
                     
                 }
             }
+            
             VStack {
                 Circle()
                     .frame(width: 300)
@@ -43,6 +41,7 @@ struct ComposingShapesView: View {
         }
     }
 }
+
 struct ComposingShapesView_Previews: PreviewProvider {
     static var previews: some View {
         ComposingShapesView()

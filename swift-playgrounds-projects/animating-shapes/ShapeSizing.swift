@@ -3,9 +3,7 @@ import SwiftUI
 struct ShapeSizingView: View {
     var body: some View {
         VStack {
-            /*#-code-walkthrough(3.basicShapes)*/
             Circle()
-            /*#-code-walkthrough(3.basicShapes)*/
                 .border(.green)
             
             Ellipse()
@@ -18,6 +16,7 @@ struct ShapeSizingView: View {
         }
     }
 }
+
 struct ShapeSizingView_Previews: PreviewProvider {
     static var previews: some View {
        ShapeSizingView()

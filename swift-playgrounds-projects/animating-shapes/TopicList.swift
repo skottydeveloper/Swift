@@ -4,8 +4,7 @@ struct TopicList: View {
     var contentSource: [Topic]
 
     @State private var selection: Destination?
-    
-    
+     
     var body: some View {
         NavigationSplitView {
             List(selection: $selection) {
@@ -25,7 +24,6 @@ struct TopicList: View {
             }
         }
     }
-    
 }
 
 struct TopicList_Previews: PreviewProvider {

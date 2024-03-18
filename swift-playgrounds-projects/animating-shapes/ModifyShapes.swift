@@ -35,5 +35,3 @@ struct ModifyShapes_Previews: PreviewProvider {
        ModifyShapes()
     }
 }
-
-

@@ -7,4 +7,3 @@ struct Topic: Identifiable, Hashable {
     var systemSymbol : String
     var destination : Destination
 }
-

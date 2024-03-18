@@ -9,7 +9,6 @@ enum Destination: String, CaseIterable {
     case dragnDropDots
     case dancingDots
 
-    
     @ViewBuilder
     static func view(forSelection selection: Destination) -> some View {
         switch selection {

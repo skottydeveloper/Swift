@@ -36,6 +36,5 @@ struct PlayResetButton: View {
            
         }
         .buttonStyle(ShapesButton())
-        
     }
 }
