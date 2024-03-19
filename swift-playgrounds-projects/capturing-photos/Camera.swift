@@ -3,9 +3,7 @@ import CoreImage
 import UIKit
 import os.log
 
-/*#-code-walkthrough(cam.intro)*/
 class Camera: NSObject {
-/*#-code-walkthrough(cam.intro)*/
     private let captureSession = AVCaptureSession()
     private var isCaptureSessionConfigured = false
     private var deviceInput: AVCaptureDeviceInput?
@@ -71,14 +69,11 @@ class Camera: NSObject {
     }
 
     private var addToPhotoStream: ((AVCapturePhoto) -> Void)?
-    
     private var addToPreviewStream: ((CIImage) -> Void)?
     
     var isPreviewPaused = false
     
-    /*#-code-walkthrough(previewflow.previewStream)*/
     lazy var previewStream: AsyncStream<CIImage> = {
-    /*#-code-walkthrough(previewflow.previewStream)*/
         AsyncStream { continuation in
             addToPreviewStream = { ciImage in
                 if !self.isPreviewPaused {
@@ -109,7 +104,6 @@ class Camera: NSObject {
     }
     
     private func configureCaptureSession(completionHandler: (_ success: Bool) -> Void) {
-        
         var success = false
         
         self.captureSession.beginConfiguration()
@@ -237,9 +231,7 @@ class Camera: NSObject {
         }
     }
     
-    /*#-code-walkthrough(previewflow.start)*/
     func start() async {
-    /*#-code-walkthrough(previewflow.start)*/
         let authorized = await checkAuthorization()
         guard authorized else {
             logger.error("Camera access was not authorized.")
@@ -298,9 +290,7 @@ class Camera: NSObject {
     }
     
     @objc
-    func updateForDeviceOrientation() {
-        //TODO: Figure out if we need this for anything.
-    }
+    func updateForDeviceOrientation() {}
     
     private func videoOrientationFor(_ deviceOrientation: UIDeviceOrientation) -> AVCaptureVideoOrientation? {
         switch deviceOrientation {
@@ -312,16 +302,11 @@ class Camera: NSObject {
         }
     }
     
-    /*#-code-walkthrough(photoflow.takePhoto)*/
     func takePhoto() {
         guard let photoOutput = self.photoOutput else { return }
-        /*#-code-walkthrough(photoflow.takePhoto)*/
-        
+
         sessionQueue.async {
-        
-            /*#-code-walkthrough(photoflow.photoSettings)*/
             var photoSettings = AVCapturePhotoSettings()
-            /*#-code-walkthrough(photoflow.photoSettings)*/
 
             if photoOutput.availablePhotoCodecTypes.contains(.hevc) {
                 photoSettings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.hevc])
@@ -341,32 +326,23 @@ class Camera: NSObject {
                 }
             }
             
-            /*#-code-walkthrough(photoflow.capturePhoto)*/
             photoOutput.capturePhoto(with: photoSettings, delegate: self)
-            /*#-code-walkthrough(photoflow.capturePhoto)*/
         }
     }
 }
 
 extension Camera: AVCapturePhotoCaptureDelegate {
-    
-    /*#-code-walkthrough(photoflow.didFinishProcessingPhoto)*/
-    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        /*#-code-walkthrough(photoflow.didFinishProcessingPhoto)*/
-        
+    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {        
         if let error = error {
             logger.error("Error capturing photo: \(error.localizedDescription)")
             return
         }
-        
-        /*#-code-walkthrough(photoflow.addToPhotoStream)*/
+
         addToPhotoStream?(photo)
-        /*#-code-walkthrough(photoflow.addToPhotoStream)*/
     }
 }
 
 extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
-    
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let pixelBuffer = sampleBuffer.imageBuffer else { return }
         
@@ -380,7 +356,6 @@ extension Camera: AVCaptureVideoDataOutputSampleBufferDelegate {
 }
 
 fileprivate extension UIScreen {
-
     var orientation: UIDeviceOrientation {
         let point = coordinateSpace.convert(CGPoint.zero, to: fixedCoordinateSpace)
         if point == CGPoint.zero {
@@ -398,4 +373,3 @@ fileprivate extension UIScreen {
 }
 
 fileprivate let logger = Logger(subsystem: "com.apple.swiftplaygroundscontent.capturingphotos", category: "Camera")
-

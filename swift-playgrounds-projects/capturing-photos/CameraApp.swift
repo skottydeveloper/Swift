@@ -2,7 +2,6 @@ import SwiftUI
 
 @main
 struct CameraApp: App {
-
     init() {
         UINavigationBar.applyCustomAppearance()
     }
@@ -15,7 +14,6 @@ struct CameraApp: App {
 }
 
 fileprivate extension UINavigationBar {
-    
     static func applyCustomAppearance() {
         let appearance = UINavigationBarAppearance()
         appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterial)

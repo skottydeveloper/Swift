@@ -2,87 +2,52 @@ import AVFoundation
 import SwiftUI
 import os.log
 
-/*#-code-walkthrough(dm.observableObject)*/
 final class DataModel: ObservableObject {
-    /*#-code-walkthrough(dm.observableObject)*/
-    /*#-code-walkthrough(dm.camera)*/
     let camera = Camera()
-    /*#-code-walkthrough(dm.camera)*/
-    /*#-code-walkthrough(dm.photoCollection)*/
     let photoCollection = PhotoCollection(smartAlbum: .smartAlbumUserLibrary)
-    /*#-code-walkthrough(dm.photoCollection)*/
     
-    /*#-code-walkthrough(dm.viewfinderImage)*/
-    /*#-code-walkthrough(dm.published)*/@Published/*#-code-walkthrough(dm.published)*/ var viewfinderImage: Image?
-    /*#-code-walkthrough(dm.viewfinderImage)*/
-    /*#-code-walkthrough(dm.thumbnailImage)*/
+    @Published var viewfinderImage: Image?
     @Published var thumbnailImage: Image?
-    /*#-code-walkthrough(dm.thumbnailImage)*/
     
     var isPhotosLoaded = false
     
     init() {
-        /*#-code-walkthrough(previewflow.taskHandlePreviews)*/
         Task {
             await handleCameraPreviews()
         }
-        /*#-code-walkthrough(previewflow.taskHandlePreviews)*/
-        
-        /*#-code-walkthrough(photoflow.taskHandlePhotos)*/
+
         Task {
             await handleCameraPhotos()
         }
-        /*#-code-walkthrough(photoflow.taskHandlePhotos)*/
     }
-    
-    /*#-code-walkthrough(previewflow.handleCameraPreviews)*/
+
     func handleCameraPreviews() async {
-        /*#-code-walkthrough(previewflow.imageStream)*/
         let imageStream = camera.previewStream
             /*.map { $0.oriented(.down) }
             .map { $0.applyingGaussianBlur(sigma: 10) }*/
-        /*#-code-walkthrough(previewflow.handleCameraPreviews)*/
-            /*#-code-walkthrough(previewflow.map)*/
             .map { $0.image }
-        /*#-code-walkthrough(previewflow.imageStream)*/
-            /*#-code-walkthrough(previewflow.map)*/
 
-        /*#-code-walkthrough(previewflow.forAwait)*/
         for await image in imageStream {
             Task { @MainActor in
-                /*#-code-walkthrough(previewflow.updateViewfinderImage)*/
                 viewfinderImage = image
-                /*#-code-walkthrough(previewflow.updateViewfinderImage)*/
             }
         }
-        /*#-code-walkthrough(previewflow.forAwait)*/
     }
-    
-    /*#-code-walkthrough(photoflow.unpackedPhotoStream)*/
+
     func handleCameraPhotos() async {
         let unpackedPhotoStream = camera.photoStream
-        /*#-code-walkthrough(photoflow.unpackedPhotoStream)*/
-            /*#-code-walkthrough(photoflow.compactMap)*/
             .compactMap { self.unpackPhoto($0) }
-            /*#-code-walkthrough(photoflow.compactMap)*/
-        
-        /*#-code-walkthrough(photoflow.forAwait)*/
+
         for await photoData in unpackedPhotoStream {
             Task { @MainActor in
-                /*#-code-walkthrough(photoflow.updateThumbnailImage)*/
                 thumbnailImage = photoData.thumbnailImage
-                /*#-code-walkthrough(photoflow.updateThumbnailImage)*/
             }
-            /*#-code-walkthrough(photoflow.callSavePhoto)*/
+
             savePhoto(imageData: photoData.imageData)
-            /*#-code-walkthrough(photoflow.callSavePhoto)*/
         }
-        /*#-code-walkthrough(photoflow.forAwait)*/
     }
     
-    /*#-code-walkthrough(photoflow.unpackPhoto)*/
     private func unpackPhoto(_ photo: AVCapturePhoto) -> PhotoData? {
-        /*#-code-walkthrough(photoflow.unpackPhoto)*/
         guard let imageData = photo.fileDataRepresentation() else { return nil }
 
         guard let previewCGImage = photo.previewCGImageRepresentation(),
@@ -99,7 +64,6 @@ final class DataModel: ObservableObject {
         return PhotoData(thumbnailImage: thumbnailImage, thumbnailSize: thumbnailSize, imageData: imageData, imageSize: imageSize)
     }
     
-    /*#-code-walkthrough(photoflow.savePhoto)*/
     func savePhoto(imageData: Data) {
         Task {
             do {
@@ -110,7 +74,6 @@ final class DataModel: ObservableObject {
             }
         }
     }
-    /*#-code-walkthrough(photoflow.savePhoto)*/
     
     func loadPhotos() async {
         guard !isPhotosLoaded else { return }
@@ -157,7 +120,6 @@ fileprivate extension CIImage {
 }
 
 fileprivate extension Image.Orientation {
-
     init(_ cgImageOrientation: CGImagePropertyOrientation) {
         switch cgImageOrientation {
         case .up: self = .up

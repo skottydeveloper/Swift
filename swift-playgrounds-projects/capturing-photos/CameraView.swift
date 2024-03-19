@@ -1,25 +1,15 @@
 import SwiftUI
 
-/*#-code-walkthrough(cv.intro)*/
 struct CameraView: View {
-/*#-code-walkthrough(cv.intro)*/
-    /*#-code-walkthrough(cv.observedObject)*/
     @StateObject private var model = DataModel()
     @State private var delayCount = 0
-    /*#-code-walkthrough(cv.observedObject)*/
  
     private static let barHeightFactor = 0.15
     
-    /*#-code-walkthrough(delayedShutter.delayCount)*/
-    /*#-code-walkthrough(delayedShutter.delayCount)*/
-    
     var body: some View {
-        
         NavigationStack {
             GeometryReader { geometry in
-                /*#-code-walkthrough(previewflow.viewPreviews)*/
-                ViewfinderView(image: /*#-code-walkthrough(previewflow.binding)*/ $model.viewfinderImage /*#-code-walkthrough(previewflow.binding)*/)
-                /*#-code-walkthrough(previewflow.viewPreviews)*/
+                ViewfinderView(image: $model.viewfinderImage)
                     .overlay(alignment: .top) {
                         Color.black
                             .opacity(0.75)
@@ -54,24 +44,16 @@ struct CameraView: View {
     
     private func buttonsView() -> some View {
         HStack(spacing: 60) {
-            
             Spacer()
             
-            /*#-code-walkthrough(navigateToGallery.entireLink)*/
-            /*#-code-walkthrough(navigateToGallery.link)*/
             NavigationLink {
-                /*#-code-walkthrough(navigateToGallery.photoCollection)*/
                 PhotoCollectionView(photoCollection: model.photoCollection)
-                /*#-code-walkthrough(navigateToGallery.photoCollection)*/
-                /*#-code-walkthrough(navigateToGallery.link)*/
-                    /*#-code-walkthrough(navigateToGallery.onAppear)*/
                     .onAppear {
                         model.camera.isPreviewPaused = true
                     }
                     .onDisappear {
                         model.camera.isPreviewPaused = false
                     }
-                    /*#-code-walkthrough(navigateToGallery.onAppear)*/
             } label: {
                 Label {
                     Text("Gallery")
@@ -79,13 +61,10 @@ struct CameraView: View {
                     ThumbnailView(image: model.thumbnailImage)
                 }
             }
-            /*#-code-walkthrough(navigateToGallery.entireLink)*/
-            
-            /*#-code-walkthrough(photoflow.shutterButton)*/
+
             Button {
                 delayCount = 5
-                
-                /*#-code-walkthrough(photoflow.shutterButton)*/
+
                 Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
                     delayCount -= 1
                     
@@ -94,7 +73,6 @@ struct CameraView: View {
                         model.camera.takePhoto()
                     }
                 }
-                /*#-code-walkthrough(photoflow.shutterButtonAction)*/
             } label: {
                 Label {
                     Text("Take Photo")
@@ -110,8 +88,6 @@ struct CameraView: View {
                         if delayCount > 0 {
                             Text("\(delayCount)")
                         }
-                        /*#-code-walkthrough(delayedShutter.icon)*/
-                        /*#-code-walkthrough(delayedShutter.icon)*/
                     }
                 }
             }
@@ -125,11 +101,9 @@ struct CameraView: View {
             }
             
             Spacer()
-        
         }
         .buttonStyle(.plain)
         .labelStyle(.iconOnly)
         .padding()
     }
-    
 }

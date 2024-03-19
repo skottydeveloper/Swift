@@ -1,12 +1,8 @@
 import SwiftUI
 import Photos
 
-/*#-code-walkthrough(piv.intro)*/
 struct PhotoItemView: View {
-/*#-code-walkthrough(piv.intro)*/
-    /*#-code-walkthrough(piv.asset)*/
     var asset: PhotoAsset
-    /*#-code-walkthrough(piv.asset)*/
     var cache: CachedImageManager?
     var imageSize: CGSize
     
@@ -14,7 +10,6 @@ struct PhotoItemView: View {
     @State private var imageRequestID: PHImageRequestID?
 
     var body: some View {
-        
         Group {
             if let image = image {
                 image

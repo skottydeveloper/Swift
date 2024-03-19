@@ -1,9 +1,7 @@
 import Photos
 import os.log
 
-/*#-code-walkthrough(pa.intro)*/
 struct PhotoAsset: Identifiable {
-    /*#-code-walkthrough(pa.intro)*/
     var id: String { identifier }
     var identifier: String = UUID().uuidString
     var index: Int?
@@ -79,4 +77,3 @@ extension PHObject: Identifiable {
 }
 
 fileprivate let logger = Logger(subsystem: "com.apple.swiftplaygroundscontent.capturingphotos", category: "PhotoAsset")
-

@@ -4,7 +4,6 @@ import SwiftUI
 import os.log
 
 actor CachedImageManager {
-    
     private let imageManager = PHCachingImageManager()
     
     private var imageContentMode = PHImageContentMode.aspectFit
@@ -82,4 +81,3 @@ actor CachedImageManager {
 }
 
 fileprivate let logger = Logger(subsystem: "com.apple.swiftplaygroundscontent.capturingphotos", category: "CachedImageManager")
-

@@ -1,26 +1,19 @@
 import Photos
 import os.log
 
-/*#-code-walkthrough(pc.observablePublished)*/
 class PhotoCollection: NSObject, ObservableObject {
-    
-    /*#-code-walkthrough(pc.photoAssets)*/
     @Published var photoAssets: PhotoAssetCollection = PhotoAssetCollection(PHFetchResult<PHAsset>())
-    /*#-code-walkthrough(pc.photoAssets)*/
-    /*#-code-walkthrough(pc.observablePublished)*/
     
     var identifier: String? {
         assetCollection?.localIdentifier
     }
     
     var albumName: String?
-    
     var smartAlbumType: PHAssetCollectionSubtype?
     
     let cache = CachedImageManager()
     
     private var assetCollection: PHAssetCollection?
-    
     private var createAlbumIfNotFound = false
     
     enum PhotoCollectionError: LocalizedError {
@@ -63,7 +56,6 @@ class PhotoCollection: NSObject, ObservableObject {
     }
     
     func load() async throws {
-        
         PHPhotoLibrary.shared().register(self)
         
         if let smartAlbumType = smartAlbumType {
@@ -109,8 +101,7 @@ class PhotoCollection: NSObject, ObservableObject {
         }
         
         do {
-            try await PHPhotoLibrary.shared().performChanges {
-                
+            try await PHPhotoLibrary.shared().performChanges {  
                 let creationRequest = PHAssetCreationRequest.forAsset()
                 if let assetPlaceholder = creationRequest.placeholderForCreatedAsset {
                     creationRequest.addResource(with: .photo, data: imageData, options: nil)
@@ -122,8 +113,7 @@ class PhotoCollection: NSObject, ObservableObject {
                 }
             }
             
-            await refreshPhotoAssets()
-            
+            await refreshPhotoAssets() 
         } catch let error {
             logger.error("Error adding image to photo library: \(error.localizedDescription)")
             throw PhotoCollectionError.addImageError(error)
@@ -172,7 +162,6 @@ class PhotoCollection: NSObject, ObservableObject {
     }
     
     private func refreshPhotoAssets(_ fetchResult: PHFetchResult<PHAsset>? = nil) async {
-
         var newFetchResult = fetchResult
 
         if newFetchResult == nil {
@@ -231,7 +220,6 @@ class PhotoCollection: NSObject, ObservableObject {
 }
 
 extension PhotoCollection: PHPhotoLibraryChangeObserver {
-    
     func photoLibraryDidChange(_ changeInstance: PHChange) {
         Task { @MainActor in
             guard let changes = changeInstance.changeDetails(for: self.photoAssets.fetchResult) else { return }

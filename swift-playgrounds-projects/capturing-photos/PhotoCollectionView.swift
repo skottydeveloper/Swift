@@ -1,13 +1,8 @@
 import SwiftUI
 import os.log
 
-/*#-code-walkthrough(pcv.PhotoCollectionView)*/
 struct PhotoCollectionView: View {
-/*#-code-walkthrough(pcv.PhotoCollectionView)*/
-    /*#-code-walkthrough(pcv.photoCollection)*/
-    @ObservedObject var photoCollection : PhotoCollection
-    /*#-code-walkthrough(pcv.photoCollection)*/
-    
+    @ObservedObject var photoCollection : PhotoCollection    
     @Environment(\.displayScale) private var displayScale
         
     private static let itemSpacing = 12.0
@@ -18,7 +13,6 @@ struct PhotoCollectionView: View {
         return CGSize(width: Self.itemSize.width * min(displayScale, 2), height: Self.itemSize.height * min(displayScale, 2))
     }
     
-    /*#-code-walkthrough(pcv.columns)*/
     private let columns = [
         GridItem(.adaptive(minimum: itemSize.width, maximum: itemSize.height), spacing: itemSpacing)
     ]
@@ -27,37 +21,22 @@ struct PhotoCollectionView: View {
         GridItem(.flexible(), spacing: itemSpacing),
         GridItem(.flexible(), spacing: itemSpacing)
     ]
-    /*#-code-walkthrough(pcv.columns)*/
-    /*#-code-walkthrough(pcv.belowColumns)*/
-    /*#-code-walkthrough(pcv.belowColumns)*/
     
     var body: some View {
-        /*#-code-walkthrough(pcv.ScrollView)*/
         ScrollView {
-            /*#-code-walkthrough(pcv.LazyVGrid)*/
             LazyVGrid(columns: fixedColumns, spacing: Self.itemSpacing) {
-                /*#-code-walkthrough(pcv.LazyVGrid)*/
-                /*#-code-walkthrough(pcv.ForEach)*/
                 ForEach(photoCollection.photoAssets) { asset in
-                    /*#-code-walkthrough(pcv.NavigationLink)*/
                     NavigationLink {
                         PhotoView(asset: asset, cache: photoCollection.cache)
-                        /*#-code-walkthrough(pcv.NavigationLink)*/
                     } label: {
-                        /*#-code-walkthrough(pcv.photoItemView)*/
                         photoItemView(asset: asset)
-                        /*#-code-walkthrough(pcv.photoItemView)*/
                     }
                     .buttonStyle(.borderless)
                     .accessibilityLabel(asset.accessibilityLabel)
                 }
-                /*#-code-walkthrough(pcv.ForEach)*/
             }
-            /*#-code-walkthrough(pcv.padding)*/
             .padding(Self.itemSpacing)
-            /*#-code-walkthrough(pcv.padding)*/
         }
-        /*#-code-walkthrough(pcv.ScrollView)*/
         .navigationTitle(photoCollection.albumName ?? "Gallery")
         .navigationBarTitleDisplayMode(.inline)
         .statusBar(hidden: false)
@@ -65,9 +44,7 @@ struct PhotoCollectionView: View {
     
     private func photoItemView(asset: PhotoAsset) -> some View {
         PhotoItemView(asset: asset, cache: photoCollection.cache, imageSize: imageSize)
-            /*#-code-walkthrough(pcv.photoItemViewFrame)*/
             //.frame(width: Self.itemSize.width, height: Self.itemSize.height)
-            /*#-code-walkthrough(pcv.photoItemViewFrame)*/
             .clipped()
             .cornerRadius(Self.itemCornerRadius)
             .overlay(alignment: .bottomLeading) {
