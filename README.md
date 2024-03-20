@@ -9,9 +9,9 @@ Consists of basic, miniature projects and exercises that demonstrate my knowledg
 ### The Simple Calculator (code not provided)
 Link to app: https://apps.apple.com/au/app/the-simple-calculator/id1525169566
 
-Currently translated into 33 different languages, having been downloaded in 110+ countries, and having trended in 25+ countries - “The Simple Calculator” is a simple calculator that can be used in your everyday life. This calculator also has the ability to solve the geometry of 2D and 3D shapes, in as little as a few clicks.
+Currently translated into 33 different languages, having been downloaded in 125+ countries, and having trended in 30+ countries - “The Simple Calculator” is a simple calculator that can be used in your everyday life. This calculator also has the ability to solve the geometry of 2D and 3D shapes, in as little as a few clicks.
 
 ### QuickList (code not provided)
 Link to app: https://apps.apple.com/au/app/quicklist-to-do-shopping-list/id1619885664
 
-Currently translated into 33 different languages, having been downloaded in 35+ countries - 'QuickList' is a no-nonsense to-do list app dedicated solely to task management, devoid of distracting bells and whistles.
+Currently translated into 33 different languages, having been downloaded in 55+ countries - 'QuickList' is a no-nonsense to-do list app dedicated solely to task management, devoid of distracting bells and whistles.
