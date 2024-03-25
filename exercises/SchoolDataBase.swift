@@ -45,10 +45,10 @@ let teachers = [
     Teacher(id: 793, name: "Mr. C", hairColor: "black", email: "c@bapple.com")
 ]
 
-let riverdaleHigh = School(name: "D High", teachers: teachers)
+let dHigh = School(name: "D High", teachers: teachers)
 
 let studentA = Student(name: "E F", favoriteTeacherID: 683)
 let studentB = Student(name: "G H", favoriteTeacherID: 793)
 
-riverdaleHigh.printFavoriteTeacherInfo(for: studentA)
-riverdaleHigh.printFavoriteTeacherInfo(for: studentB)
+dHigh.printFavoriteTeacherInfo(for: studentA)
+dHigh.printFavoriteTeacherInfo(for: studentB)
