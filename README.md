@@ -14,4 +14,4 @@ Currently translated into 33 different languages, having been downloaded in 125+
 ### QuickList (code not provided)
 Link to app: https://apps.apple.com/au/app/quicklist-to-do-shopping-list/id1619885664
 
-Currently translated into 33 different languages, having been downloaded in 55+ countries - 'QuickList' is a no-nonsense to-do list app dedicated solely to task management, devoid of distracting bells and whistles.
+Currently translated into 33 different languages, having been downloaded in 55+ countries - 'QuickList' is a no-nonsense to-do list app dedicated solely to task management, without the distracting bells and whistles.
