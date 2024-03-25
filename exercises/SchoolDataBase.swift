@@ -29,12 +29,15 @@ struct School {
             print("No teacher with the id \(student.favoriteTeacherID) works at \(name)!")
             return
         }
+
         print("\(student.name)'s favorite teacher is \(favoriteTeacher.name)")
         print("They have \(favoriteTeacher.hairColor ?? "no") hair")
+        
         guard let email = favoriteTeacher.email else {
             print("They don't have an email address on file")
             return
         }
+        
         print("Their email address is \(email)")
     }
 }
