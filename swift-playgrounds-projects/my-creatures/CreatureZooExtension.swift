@@ -10,6 +10,7 @@ extension CreatureZoo {
     
     func synchronizeOffsets() {
         let randomOffset = CGSize(width: CGFloat.random(in: -200...200), height: CGFloat.random(in: -200...200))
+        
         for index in creatures.indices {
             creatures[index].offset = randomOffset
         }
@@ -19,6 +20,7 @@ extension CreatureZoo {
         if let index = creatures.firstIndex(where: { $0.id == creature.id }) {
             return Double(index)
         }
+
         return 0.0
     }
 }
