@@ -15,3 +15,8 @@ Currently translated into 33 different languages, having been downloaded in 125+
 Link to app: https://apps.apple.com/au/app/quicklist-to-do-shopping-list/id1619885664
 
 Currently translated into 33 different languages, having been downloaded in 55+ countries - 'QuickList' is a no-nonsense to-do list app dedicated solely to task management, without the distracting bells and whistles.
+
+### Simple Currency Converter (code not provided)
+Link to app: https://apps.apple.com/au/app/simple-currency-converter/id6499583569
+
+Currently translated into 33 different languages, having been downloaded in 125+ countries in just its first week on the App Store - “Simple Currency Converter” is a simple currency converter that can be used in your everyday life. This converter has the ability to provide real-time exchange rates for 160+ currencies on an hourly basis.
